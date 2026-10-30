@@ -1,0 +1,22 @@
+name: validate
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate repository structure
+        run: python3 scripts/validate_repo.py
+      - name: Scan for personal-data patterns
+        # the private denylist is not in the repo, so CI runs the generic patterns only;
+        # run `python3 scripts/privacy_audit.py --history` locally before every push
+        run: python3 scripts/privacy_audit.py --history --allow-no-denylist

@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+.DS_Store
+# never commit research data
+cases/
+*.jpg
+*.jpeg
+*.png
+*.tif
+*.tiff
+*.heic
+*.pdf
+*.ged
+*.gedcom
+# local privacy denylist for scripts/privacy_audit.py
+.private/
