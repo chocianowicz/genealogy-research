@@ -14,3 +14,11 @@ cases/
 *.gedcom
 # local privacy denylist for scripts/privacy_audit.py
 .private/
+
+# Common ignores (added by repo audit 2026-11-06)
+.env
+.env.local
+.claude/settings.local.json
+*.log
+.venv/
+!.env.example
